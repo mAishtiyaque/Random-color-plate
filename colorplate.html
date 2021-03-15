@@ -54,11 +54,11 @@
     <script>
         for(let i=0;i<99;i++){
             var box=document.createElement("div");
-            var att= document.createAttribute("onclick");
+           
             var b=document.getElementById('c');
             b.appendChild(box);
-            att.value="fn"+i+"()";
-            b.children[i].setAttributeNode(att);
+           
+         
             b.children[i].classList="box";
             b.children[i].style.color="white";
             var t=rcolor();
@@ -83,10 +83,7 @@
             }
             return '#'+result;
         }
-        function fn0(){
-            var b=document.getElementById('c');
-            b.children[0].innerHTML="Copied!"
-        }
+       
     </script>
 </body>
 </html>
