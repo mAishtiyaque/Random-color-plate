@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color plate!!!</title>
+   
+</head>
+<style>
+    body{
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+    }
+    .box{
+        width: 40px;
+        min-width: 100px;
+        display: flex;
+        padding: 3%;
+        justify-content: center;
+        border: 2px solid rgb(256, 256, 256);
+        cursor: pointer;
+    }
+    #c{width: calc(100vw-12px );
+        flex-wrap: wrap;
+        display: flex;
+        margin: auto;
+        margin-top: 10px;
+        justify-content: center;
+    }
+    .btn{ margin: auto;
+        flex-wrap: wrap;
+        display: flex; 
+        cursor:pointer;
+        margin-top: 10px;
+        justify-content: center;
+        background-color: transparent;
+        padding: 6px 12px;
+        border: 2px groove rgb(61, 230, 27);
+    }
+    .btn:active , .btn:focus{
+        border: 2px solid rgb(82, 245, 49);
+        padding: 6px 14px;
+        outline:none;
+      
+    }
+</style>
+<body>
+    <button type="button" class="btn" onclick="ref()">Refresh</button>
+    <div id="c" class="container" >
+
+    </div>
+    <script>
+        for(let i=0;i<99;i++){
+            var box=document.createElement("div");
+            var att= document.createAttribute("onclick");
+            var b=document.getElementById('c');
+            b.appendChild(box);
+            att.value="fn"+i+"()";
+            b.children[i].setAttributeNode(att);
+            b.children[i].classList="box";
+            b.children[i].style.color="white";
+            var t=rcolor();
+            b.children[i].style.backgroundColor=t;
+            box.textContent = t;
+        }
+        function ref(){ var b=document.getElementById('c');
+            for(let i=0;i<99;i++){
+            var t=rcolor();
+            b.children[i].style.backgroundColor=t;
+            b.children[i].innerHTML=t;
+        }
+        }
+        
+        function rcolor(){
+            var t="0123456789abcdef";
+            var result="";
+            for(let i=0;i<6;i++){
+               var k=t.charAt(Math.floor(Math.random()*16));
+               result+=k;
+              
+            }
+            return '#'+result;
+        }
+        function fn0(){
+            var b=document.getElementById('c');
+            b.children[0].innerHTML="Copied!"
+        }
+    </script>
+</body>
+</html>
